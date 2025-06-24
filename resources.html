@@ -33,6 +33,30 @@ body,input {
   .nav-links a:hover {
       text-decoration: underline;
     }
+   /* Go to Top Button */
+    #goToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none; /* Hidden by default */
+      z-index: 1000;
+    }
+
+    #goToTop:hover {
+      background-color: #0056b3;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
 
 </style>
 </head>
@@ -873,5 +897,26 @@ body,input {
 <p dir="auto"><em>If you are 65 years old or older and have been a legal permanent resident of the United States for 20 or more years, you may study just the questions that have been marked with an asterisk (*).</em></p>
 <hr>
 <p dir="auto"><em>Source</em>: www.uscis.gov</a></p></div>
+
+  <!-- Go to Top Button -->
+  <button id="goToTop" onclick="scrollToTop()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-icon lucide-arrow-up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+
+  <script>
+    // Show the 'Go to Top' button after scrolling 100px from the top
+    window.onscroll = function() {
+      var button = document.getElementById('goToTop');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        button.style.display = "block";
+      } else {
+        button.style.display = "none";
+      }
+    };
+
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
